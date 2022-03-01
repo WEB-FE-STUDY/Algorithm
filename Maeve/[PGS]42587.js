@@ -1,36 +1,24 @@
-function solution(bridge_length, weight, truck_weights) {
-  let time = 0;
-  let queue_weight = 0;
-  let queue = [];
+function solution(priorities, location) {
+  let answer = 1;
+  let target_index = location;
 
-  for (let i = 0; i < bridge_length; i++) {
-    // 주의: 다리 길이만큼 0을 넣어야함
-    queue.push(0);
-  }
+  while (priorities.length) {
+    let front = priorities.shift();
 
-  time++;
-
-  let cur_truck = truck_weights.shift();
-  queue.shift();
-  queue.push(cur_truck);
-  queue_weight += cur_truck;
-
-  while (queue_weight) {
-    time++;
-
-    let next_truck = truck_weights.shift(); // 다음 트럭
-    queue_weight -= queue.shift(); // 큐 맨 앞 요소
-
-    if (queue_weight + next_truck <= weight) {
-      queue.push(next_truck);
-      queue_weight += next_truck;
+    if (priorities.some((v) => v > front)) {
+      // 중요도 높은 게 있으면
+      priorities.push(front);
     } else {
-      queue.push(0); // 올라갈 수 없다면 0 넣기
-      truck_weights.unshift(next_truck);
+      if (target_index === 0) break;
+      answer++;
     }
+
+    // target_index 조정
+    if (target_index === 0) target_index = priorities.length - 1;
+    else target_index--;
   }
 
-  return time;
+  return answer;
 }
 
-// 한줄평: 문제 이해도 오래 걸렸고 푸는 데도 한참 걸렸다.
+// 고차함수 some을 알게 됨 - 하나라도 조건을 만족하면 return true;

@@ -9,9 +9,9 @@ function solution(bridge_length, weight, truck_weights) {
   while (bridge.length > 0) {
     bridge.shift();
     time += 1;
-    
+
     const sumOnBridge = bridge.reduce((prev, cur) => prev + cur, 0);
-    
+
     if (sumOnBridge === 0 && truck_weights.length === 0) {
       return time;
     }

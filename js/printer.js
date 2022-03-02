@@ -20,9 +20,6 @@ function solution(priorities, location) {
       }
       target = priorities[curLocation];
     }
-    console.log(
-      `check:${check}, curLocation:${curLocation}, priorities.length:${priorities.length}, answer: ${answer}`
-    );
   }
   return answer;
 }

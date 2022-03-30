@@ -19,14 +19,14 @@ function solution(n, computers) {
   }
 
   return answer;
-  //   for (let i = 0; i < n; i++) {
-  //     const computer = computers[i];
-  //     const connected = computer.filter((connect) => connect === 0).length;
-  //     console.log(connected);
-  //     if (answer < connected) {
-  //       answer = connected;
-  //     }
-  //   }// 잔머리 굴렸다가 틀림...
+  for (let i = 0; i < n; i++) {
+    const computer = computers[i];
+    const connected = computer.filter((connect) => connect === 0).length;
+    console.log(connected);
+    if (answer < connected) {
+      answer = connected;
+    }
+  } // 잔머리 굴렸다가 틀림...
 }
 
 const computers1 = [

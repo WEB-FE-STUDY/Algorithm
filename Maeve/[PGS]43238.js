@@ -26,7 +26,3 @@ function solution(n, times) {
 
   return answer;
 }
-
-const n = 6;
-const times = [7, 10];
-console.log(solution(n, times));

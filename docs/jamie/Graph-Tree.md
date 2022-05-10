@@ -33,13 +33,14 @@
 
 ### 인접 리스트 (Adjacency List)
 
-![https://miro.medium.com/max/934/0*p-mzJzezcBir9Xfv](https://miro.medium.com/max/934/0*p-mzJzezcBir9Xfv)
-   
+![https://t1.daumcdn.net/cfile/tistory/2269874B584C17F301](https://t1.daumcdn.net/cfile/tistory/2269874B584C17F301)
+
+![https://t1.daumcdn.net/cfile/tistory/265E074D584C26DD2B](https://t1.daumcdn.net/cfile/tistory/265E074D584C26DD2B)   
 
 - 각 정점에 연결되어 있는 정점들을 연결 리스트로 표현한다.
 - 정점의 개수만큼 인접리스트가 존재하고, 각 인접 리스트에는 인접한 정점 정보가 저장된다. 그래프는 각 인접리스트에 대한 헤드 포인터를 배열로 갖는다.
 - 장점
-    - 존재하는 간선만 관리하면 되므로 메모리 사용 측면에서 보다 효율적이다.
+    - 실제로 연결된 노드들에 대한 정보만 저장하므로, 인접 리스트 내 모든 원소의 개수의 합이 간선의 개수와 같다 ⇒ 간선의 개수에 비례하는 메모리만 차지한다.
     - 그래프의 모든 간선의 수를 알아내려면 각 정점의 헤더 노드부터 모든 인접 리스트를 탐색해야 하므로 O(N+E)의 시간이 소요된다.
 - 단점
     - 두 정점을 연결하는 간선을 조회하거나 정점의 차수를 알기 위해서는 정점의 인접 리스트를 탐색해야 하므로 정점의 차수만큼의 시간이 필요하다.
@@ -75,7 +76,11 @@
 - **hasEdge()** : node가 서로 연결되어 있는 지 확인하여 boolean 값을 출력한다.
 - **removeEdge()** : node를 연결하는 edge를 제거한다.
 - **forEachNode()** : 각 노드를한 번씩 호출하여 그래프를 통과한다.
-   
+
+## 그래프 순회 방법
+
+- 깊이 우선 탐색 (DFS)
+- 너비 우선 탐색 (BFS)
 
 # 트리 (Tree)
 
@@ -101,7 +106,46 @@
 - 노드의 차수(`degree`) : 각 노드에서 뻗어나온 가지의 수
 - 트리의 차수(`degree of tree`) : 트리에서 가장 큰 차수
 - 트리의 높이(`height`) : 가장 깊숙히 있는 노드의 깊이
-   
+
+## 트리의 종류
+
+### 이진 트리 (Binary Tree)
+
+- 자식을 최대 2개까지 가질 수 있는 트리
+
+### 삼항 트리 (Ternary Tree)
+
+- 자식을 최대 3개까지 가질 수 있는 트리
+
+### 이진 탐색 트리 (Binary Search Tree)
+
+![https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/1920px-Binary_search_tree.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/1920px-Binary_search_tree.svg.png)
+
+- 기본적인 특징은 이진 트리와 같다.
+- 다만 노드의 왼쪽에는 자신보다 값이 작은 노드가, 오른쪽에는 자신보다 값이 큰 노드가 온다.
+- 이 조건은 부모 자식 관계에만 적용되는 것이 아니다. 4를 기준으로 보면 상위에 있는 3도 4의 왼쪽에 있으므로 자신보다 작아야 하고, 1 또한 4보다 작다. 반면 4의 오른쪽에 있는 7, 13 또한 자신보다 큰 값을 갖고 있다.
+
+### 완전 이진 트리 (Complete Binary Tree)
+
+![https://gmlwjd9405.github.io/images/data-structure-tree/Complete-Binary-Tree.png](https://gmlwjd9405.github.io/images/data-structure-tree/Complete-Binary-Tree.png)
+
+- 이진 트리의 조건을 만족하면서 아래 조건을 만족해야 한다.
+- 마지막 레벨을 제외한 나머지 레벨에서는 노드들이 꽉 차있어야 한다.
+- 마지막 레벨은 왼쪽부터 노드가 채워져있어야 한다.
+
+### 정 이진 트리 (Full Binary Tree)
+
+![https://cdn.programiz.com/sites/tutorial2program/files/full-binary-tree_0.png](https://cdn.programiz.com/sites/tutorial2program/files/full-binary-tree_0.png)
+
+- 이진 트리의 조건을 만족하면서 아래 조건을 만족해야 한다.
+- 루트 노드를 제외한 모든 노드들은 2개의 자식 노드를 가지거나, 자식 노드가 하나도 없어야 한다.
+
+### 포화 이진 트리 (Perfect Binary Tree)
+
+![https://media.geeksforgeeks.org/wp-content/uploads/binary_tree-1.png](https://media.geeksforgeeks.org/wp-content/uploads/binary_tree-1.png)
+
+- 이진 트리의 조건을 만족하면서 아래 조건을 만족해야 한다.
+- 마지막 레벨에 있는 노드를 제외한 모든 나머지 노드들이 2개의 자식 노드를 가져야 한다.
 
 ## Tree 구현
 
@@ -153,10 +197,24 @@ rootNode.contains(5); //false
 rootNode.contains(1); //true
 ```
 
-추후 정리
+## 이진트리 순회 방법
 
-[https://velog.io/@keum0821/트리의-개념과-이진-트리](https://velog.io/@keum0821/%ED%8A%B8%EB%A6%AC%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC)   
-[https://it-and-life.tistory.com/164](https://it-and-life.tistory.com/164)
+![이진트리 순회 방법 예시](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/52a25cdb-b71d-430a-8ea1-2518ab420f6b/download.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220510T160612Z&X-Amz-Expires=86400&X-Amz-Signature=9077db817e68648df540b513f626d685c141f5eb380c62d28b9eed3ee1f21b91&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22download.png%22&x-id=GetObject)
+
+### 전위 순회 (Preorder Traversal)
+
+- root → left → right
+- 순서 : 1 - 2 - 4 - 8 - 9 - 5 - 10 - 11 - 3 - 6 - 12 - 13 - 7 - 14 - 15
+
+### 중위 순회 (Inorder Traversal)
+
+- left → root → right
+- 순서 : 8 - 4 - 9 - 2 - 10 - 5 - 11 - 1 - 12 - 6 - 13 - 3 - 14 - 7 - 15
+
+### 후위 순회 (Postorder Traversal)
+
+- left → right → root
+- 순서 : 8 - 9 - 4 - 10 - 11 - 5 - 2 - 12 - 13 - 6 - 14 - 15 - 7 - 3 - 1
 
 > 참고
 >
@@ -164,3 +222,6 @@ rootNode.contains(1); //true
 > - [https://medium.com/@gwakhyoeun/til-자료구조-graph-이해하기-6f92fd87a0bd](https://medium.com/@gwakhyoeun/til-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-graph-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-6f92fd87a0bd)
 > - [https://suyeon96.tistory.com/32](https://suyeon96.tistory.com/32)
 > - [https://gusrb3164.github.io/computer-science/2021/04/16/graph,tree/](https://gusrb3164.github.io/computer-science/2021/04/16/graph,tree/)
+> - [https://sarah950716.tistory.com/12](https://sarah950716.tistory.com/12)
+> - [https://velog.io/@keum0821/트리의-개념과-이진-트리](https://velog.io/@keum0821/%ED%8A%B8%EB%A6%AC%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC)
+> - [https://hongku.tistory.com/160](https://hongku.tistory.com/160)

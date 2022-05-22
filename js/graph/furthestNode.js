@@ -10,6 +10,8 @@ function solution(n, edge) {
     matrix[from].push(to);
     matrix[to].push(from);
   });
+
+  // console.log(matrix);
   const visited = new Array(n + 1).fill(0); // bfs 방문 노드 저장용
   visited[0] = -1; // idx와 노드 일치,햇갈리지 않게 -1로
   // visited = [-1, 1, 0, 0,0, 0, 0]
@@ -18,7 +20,7 @@ function solution(n, edge) {
     visited[start] = 1; // 1만 보면 되니까 1로 고정
     while (queue.length) {
       const cur = queue.shift();
-      console.log(cur);
+      // console.log(cur);
       for (let i = 0; i < matrix[cur].length; i++) {
         const next = matrix[cur][i]; //3,2,6,4,2,1...
         if (!visited[next] || visited[next] > visited[cur] + 1) {
@@ -28,7 +30,7 @@ function solution(n, edge) {
         }
       }
     }
-    // console.log(visited);
+    console.log(visited);
   };
   bfs(1);
 

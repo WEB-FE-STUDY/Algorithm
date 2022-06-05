@@ -8,7 +8,6 @@ function solution(left, right) {
       }
     }
     gcd % 2 === 0 ? (answer += i) : (answer -= i);
-
     gcd = 0;
   }
   return answer;

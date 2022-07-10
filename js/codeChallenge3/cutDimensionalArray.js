@@ -12,3 +12,11 @@ const [n1, left1, right1] = [3, 2, 5];
 const [n2, left2, right2] = [4, 7, 14];
 
 console.log(solution(n1, left1, right1), solution(n2, left2, right2));
+
+[
+  [1, 2, 3, 4, 5],
+  [2, 2, 3, 4, 5],
+  [3, 3, 3, 4, 5],
+  [4, 4, 4, 4, 5],
+  [5, 5, 5, 5, 5],
+];

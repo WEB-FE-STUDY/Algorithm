@@ -16,12 +16,6 @@
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/moonyerim2">
-        <img src="https://avatars.githubusercontent.com/u/75062526?v=4" width="100px;" alt="Pokky"/><br />
-        <sub><b>Pokky</b><br></sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://github.com/ldldz">
         <img src="https://avatars.githubusercontent.com/u/11494626?v=4" width="100px;" alt="Geon"/><br />
         <sub><b>Geon</b><br></sub>
@@ -43,6 +37,12 @@
       <a href="https://github.com/herrakam">
         <img src="https://avatars.githubusercontent.com/u/54533561?v=4" width="100px;" alt="JS"/><br />
         <sub><b>JS</b><br></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/moonyerim2">
+        <img src="https://avatars.githubusercontent.com/u/75062526?v=4" width="100px;" alt="Pokky"/><br />
+        <sub><b>Pokky</b><br></sub>
       </a>
     </td>
   </tr>
@@ -71,6 +71,13 @@
 - `수요일`에 서로의 `Pull Request`를 보고 코드리뷰를 진행한다.
 - 디스코드로 리뷰를 진행하고, 추후 추가로 리뷰하고 싶은 부분이 있다면 PR 코멘트로 작성한다.
 - 모든 주제 학습이 끝났다면 이후 스터디 진행 방식은 상의해서 결정한다.
+
+### 진행 방식 변경
+
+- 매주 `월요일`부터 `금요일`까지 진행한다. 시간은 기본적으로 2시로 정하되, 각자 스케줄에 따라 변경할 수 있다.
+- [백준 강의](https://code.plus/course/51) 에 포함된 문제를 매일 순차적으로 풀이한다.
+- 시간을 정해 함께 풀이하고, 리뷰하는 시간을 갖는다.
+- 매주 풀이가 끝나면 `Pull Request`를 보낸다.
 
 <br />
 
@@ -102,3 +109,8 @@ $ git commit -m "[PGS] 문제1 / Level 1 / 10분" -m "https://programmers.co.kr/
 - PR 제목 : `[이름] 주제`
 - `[Jamie] 스택/큐`
 - comments는 자유이나, 가능하다면 새롭게 알게 된 사실이 있는지, 어떤 방식으로 접근했는지 등 간단하게라도 회고를 작성한다. 
+
+### PR 규칙 변경
+
+- PR 제목 : `[이름] 강의명 Week[N]`
+- `[Jamie] 코딩테스트 준비 - 기초 Week1`

@@ -78,6 +78,7 @@
 - [백준 강의](https://code.plus/course/51) 에 포함된 문제를 매일 순차적으로 풀이한다.
 - 시간을 정해 함께 풀이하고, 리뷰하는 시간을 갖는다.
 - 매주 풀이가 끝나면 `Pull Request`를 보낸다.
+- [백준 입출력 템플릿](https://gist.github.com/healtheloper/3c9d7baf9ad5150588b823eea40174cb) (갓파크 제공 👍)
 
 <br />
 

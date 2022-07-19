@@ -26,4 +26,3 @@ const [n1, stages1] = [5, [2, 1, 2, 6, 2, 4, 3, 3]];
 const [n2, stages2] = [4, [4, 4, 4, 4, 4]];
 
 console.log(solution(n1, stages1));
-// console.log(solution(n2, stages2));

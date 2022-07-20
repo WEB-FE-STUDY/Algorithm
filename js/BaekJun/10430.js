@@ -21,4 +21,3 @@ rl.on("line", (answer) => {
   solution(answer);
   rl.close();
 });
-2:40

@@ -31,7 +31,7 @@ const solution = (input) => {
   let answer = 0;
   const inputNum = Number(input);
   for (let i = 1; i <= inputNum; i++) {
-    answer += i * Math.floor(inputNum / i);
+    answer += i * Math.floor(inputNum / i); // >>0을 하면 숫자의 소숫점을 버리게 됨(비트연산자)
   }
   return answer;
 };

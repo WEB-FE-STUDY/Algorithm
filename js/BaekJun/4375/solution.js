@@ -35,16 +35,18 @@ const input = require("fs")
   .split("\n")
   .map((idx) => +idx);
 const solution = (input) => {
-  return input.map((idx) => {
+  input.map((idx) => {
     let input = Number(idx);
-    let count = "1";
+    let count = 1;
+    let length = "1";
     while (true) {
-      const bigger = Number(count + "1");
-      if (bigger % input === 0) {
-        console.log(String(bigger).length);
+      if (count % input === 0) {
+        console.log(length.length);
         break;
       } else {
-        count = String(bigger);
+        count = count * 10 + 1;
+        count %= input;
+        length += "1";
       }
     }
   });

@@ -17,4 +17,3 @@ rl.on("line", (answer) => {
 }).on("close", () => {
   console.log(solution(input));
 });
-template3.j;

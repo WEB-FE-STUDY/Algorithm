@@ -1,4 +1,3 @@
-const { count } = require("console");
 const readline = require("readline");
 
 const rl = readline.createInterface({

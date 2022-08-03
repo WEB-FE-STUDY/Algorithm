@@ -7,10 +7,7 @@ const rl = readline.createInterface({
 
 const solution = (input) => {
   const [range, selectNum] = input.split(" ").map(Number);
-  const rangeArr = [];
-  for (let i = 1; i <= range; i++) {
-    rangeArr.push(i);
-  }
+  const rangeArr = new Array(range).fill().map((_, i) => i + 1);
   const getCombinations = (arr, selectNumber) => {
     const results = [];
     if (selectNumber === 1) return arr.map((el) => [el]);

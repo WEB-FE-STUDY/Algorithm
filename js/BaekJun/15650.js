@@ -11,14 +11,14 @@ const solution = (input) => {
   for (let i = 1; i <= range; i++) {
     rangeArr.push(i);
   }
-  const getCombonations = (arr, selectNumber) => {
+  const getCombinations = (arr, selectNumber) => {
     const results = [];
     if (selectNumber === 1) return arr.map((el) => [el]);
     arr.forEach((fixed, idx) => {
       const rest = arr.slice(idx + 1);
-      const combinations = getCombonations(rest, selectNumber - 1);
+      const combinations = getCombinations(rest, selectNumber - 1);
       const attatched = combinations.map((el) => [fixed, ...el]);
-      results.push(attatched);
+      results.push(...attatched);
     });
     return results;
   };

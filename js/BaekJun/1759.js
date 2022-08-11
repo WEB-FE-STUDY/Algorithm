@@ -1,4 +1,3 @@
-const { get } = require("http");
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -17,9 +16,7 @@ const getCombinations = (arr, targetNumber) => {
   });
   return results;
 };
-const getJalength = (arr) => {
-  return arr.filter((el) => el !== "a" && el !== "e" && el !== "i" && el !== "o" && el !== "u");
-};
+
 const solution = (input) => {
   const amount = input[0].split(" ").map(Number)[0];
   const inputArr = input[1].split(" ").sort();
@@ -31,7 +28,8 @@ const solution = (input) => {
           el.includes("i") ||
           el.includes("o") ||
           el.includes("u")) &&
-        getJalength(el).length >= 2
+        el.filter((el) => el !== "a" && el !== "e" && el !== "i" && el !== "o" && el !== "u")
+          .length >= 2
     )
     .map((arr) => arr.join("").split(","))
     .join("\n");

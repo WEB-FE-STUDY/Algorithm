@@ -8,7 +8,6 @@ const input = [];
 
 const solution = (input) => {
   let answer = 0;
-  const a = "123";
   return answer;
 };
 

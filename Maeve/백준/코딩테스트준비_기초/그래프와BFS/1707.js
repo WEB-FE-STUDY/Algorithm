@@ -8,8 +8,7 @@ const rl = readline.createInterface({
 const input = [];
 
 const solution = (input) => {
-  const K = Number(input[0]);
-  input.shift();
+  const K = Number(input.shift());
 
   function solve(V, E, vertex) {
     const adjList = Array.from(Array(V + 1), () => Array(0));
@@ -52,15 +51,12 @@ const solution = (input) => {
         bfs(i);
       }
     }
-
     console.log(answer);
   }
 
   while (input.length) {
-    const [V, E] = input[0].split(" ").map(Number);
-    input.shift();
-    const vertex = input.slice(0, E).map((el) => el.split(" ").map(Number));
-    input.splice(0, E);
+    const [V, E] = input.shift().split(" ").map(Number);
+    const vertex = input.splice(0, E).map((el) => el.split(" ").map(Number));
     solve(V, E, vertex);
   }
 };

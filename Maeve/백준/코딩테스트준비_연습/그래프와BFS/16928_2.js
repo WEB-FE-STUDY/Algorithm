@@ -33,18 +33,16 @@ const solution = (input) => {
     }
 
     for (let i = 1; i <= 6; i++) {
-      const nextPosition = position + i;
-      if (nextPosition > 100 || visited[nextPosition]) continue;
+      let nextPosition = position + i;
+      if (nextPosition > 100) continue;
 
-      if (!laddersNSnakes[nextPosition]) {
+      if (laddersNSnakes[nextPosition]) {
+        nextPosition = laddersNSnakes[nextPosition];
+      }
+
+      if (!visited[nextPosition]) {
         queue.push([nextPosition, count + 1]);
         visited[nextPosition] = true;
-      } else {
-        // 여기 else로 안 하면 시간초과 남
-        if (!visited[laddersNSnakes[nextPosition]]) {
-          queue.push([laddersNSnakes[nextPosition], count + 1]);
-          visited[laddersNSnakes[nextPosition]] = true;
-        }
       }
     }
   }

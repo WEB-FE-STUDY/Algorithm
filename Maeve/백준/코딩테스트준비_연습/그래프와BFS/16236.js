@@ -69,25 +69,12 @@ const solution = (input) => {
       }
     }
   }
+  // 여기까지 map에서 통과 가능한 모든 위치 돌면서 먹을 수 있는 물고기 수집한 것
 
-  // 여기까지 한 depth 돌면서 물고기 후보를 담은 거
   while (fish.length !== 0) {
-    if (fish.length === 1) {
-      shark.x = fish[0].x;
-      shark.y = fish[0].y;
-      map[shark.x][shark.y] = 0; // 9는 칠하지 않는다
-      shark.count--;
-      if (shark.count === 0) {
-        shark.size++;
-        shark.count = shark.size;
-      }
-      time += fish[0].distance;
-      fish.shift(); // fish 초기화 되는데 할 필요 있나
-      bfs(shark.x, shark.y);
-    } else if (fish.length >= 2) {
+    if (fish.length >= 2) {
       fish.sort((a, b) => {
-        let aD = a.distance;
-        let bD = b.distance;
+        let [aD, bD] = [a.distance, b.distance];
 
         // sort1 - distance
         if (aD < bD) return -1;
@@ -106,19 +93,21 @@ const solution = (input) => {
           }
         }
       });
+    } // 최단 거리 물고기 찾음!
 
-      shark.x = fish[0].x;
-      shark.y = fish[0].y;
-      map[shark.x][shark.y] = 0;
-      shark.count--;
-      if (shark.count === 0) {
-        shark.size++;
-        shark.count = shark.size;
-      }
-      time += fish[0].distance;
-      fish.shift(); // fish 초기화 되는데 할 필요 있나
-      bfs(shark.x, shark.y);
+    // 물고기 먹는 과정
+    shark.x = fish[0].x;
+    shark.y = fish[0].y;
+    map[shark.x][shark.y] = 0; // 결국 이 while 문은 모든 물고기를 먹기 위해 (엄마 상어 만날 때까지) 돌리는 것이다.
+    shark.count--;
+    if (shark.count === 0) {
+      shark.size++;
+      shark.count = shark.size;
     }
+    time += fish[0].distance;
+    fish.shift();
+
+    bfs(shark.x, shark.y);
   }
 
   if (fish.length === 0) return console.log(time);
@@ -131,3 +120,4 @@ rl.on("line", (answer) => {
 });
 
 // https://jaekwan.tistory.com/149
+// https://velog.io/@skyepodium/%EB%B0%B1%EC%A4%80-16236-%EC%95%84%EA%B8%B0-%EC%83%81%EC%96%B4
